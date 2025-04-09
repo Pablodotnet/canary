@@ -22,9 +22,11 @@ function broadcast.onSay(player, words, param)
 	local text = player:getName() .. " broadcasted: " .. param
 	logger.info(text)
 	Broadcast(param)
+	Webhook.sendMessage(player:getName().." has broadcasted", param, WEBHOOK_COLOR_WARNING, announcementChannels["serverAnnouncements"])
 	return true
 end
 
 broadcast:separator(" ")
 broadcast:groupType("gamemaster")
 broadcast:register()
+
